@@ -1,0 +1,23 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+ccsdex/node_modules
+ccsdex/.pnp
+ccsdex/.pnp.js
+
+# testing
+ccsdex/coverage
+
+# production
+ccsdex/build
+
+# misc
+.DS_Store
+ccsdex/.env.local
+ccsdex/.env.development.local
+ccsdex/.env.test.local
+ccsdex/.env.production.local
+
+ccsdex/npm-debug.log*
+ccsdex/yarn-debug.log*
+ccsdex/yarn-error.log*
