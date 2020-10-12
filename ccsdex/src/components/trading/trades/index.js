@@ -1,11 +1,44 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import ActiveTraders from "../active-traders";
 import BuyWall from "../buy-wall";
 import MyTraders from "../my-traders";
 import SellWall from "../sell-wall";
 
+import "../../../assets/css/lib/amchart/export.css";
+import "../../../assets/css/lib/owl.carousel.min.css";
+import "../../../assets/css/lib/owl.theme.default.min.css";
+
+import { loadScript } from "../../../helper/scriptLoader";
+
+var scriptLink = [
+  "js/lib/morris-chart/raphael-min.js",
+  "js/lib/morris-chart/morris.js",
+  "https://www.amcharts.com/lib/3/amcharts.js",
+  "js/lib/chart-amchart/serial.js",
+  "js/lib/chart-amchart/export.min.js",
+  "js/lib/chart-amchart/light.js",
+  "js/lib/chart-amchart/ammap.js",
+  "js/lib/chart-amchart/worldLow.js",
+  "js/lib/chart-amchart/pie.js",
+  "js/lib/chart-amchart/amstock.js",
+  "js/lib/chart-amchart/amchart-init.js",
+  "js/lib/weather/jquery.simpleWeather.min.js",
+  "js/lib/weather/weather-init.js",
+  "js/dashboard-2.js"
+];
+
+
+
 function Trades() {
+  useLayoutEffect(() => {
+    scriptLink.map((item) => {
+      loadScript(item.includes('https') ? item : `assets/${item}`)
+    })
+    return () => {
+      //cleanup
+    };
+  }, [])
   return (
     <>
       <div className="row">
