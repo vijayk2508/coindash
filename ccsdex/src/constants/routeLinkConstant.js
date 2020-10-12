@@ -1,7 +1,7 @@
 const routeLink = {
   Home: "/",
   Login : "/login",
-  SignUp : "/singup",
+  SignUp : "/signup",
   Dashboard : "/dashboard",
   TradingDashboard : '/trading-dashboard',
   AssetTrading : "/asset-trading",
