@@ -5,12 +5,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { cookies } from "../services/auth";
+import { TokenID } from "../constants";
 import routeLink from "../constants/routeLinkConstant";
 
 function CommonRoute({ render: Component, ...rest }) {
-  function renderComponent(props) { 
-    return cookies.get('ccsdexid') ? (
-      <Redirect to={{ pathname: routeLink.Dashboard, state: { from: props.location } }} />
+  function renderComponent(props) {
+    return cookies.get(TokenID) ? (
+      <Redirect to={{ pathname: routeLink.Entry, state: { from: props.location } }} />
     ) : (
       <Component {...props} {...rest} />
     );

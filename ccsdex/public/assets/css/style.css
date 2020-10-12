@@ -7476,3 +7476,7 @@ only screen and (min-resolution: 2dppx) {
 .color-light {
     color: #1b263a;
 }
+
+ul li a:hover {
+    cursor: pointer;
+}

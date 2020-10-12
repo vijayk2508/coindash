@@ -1,8 +1,13 @@
 const routeLink = {
-  Login: "/login",
-  Dashboard: "/",
-  Subject: "/subject",
-  Topic: "/topic",
+  Home: "/",
+  Login : "/login",
+  SignUp : "/singup",
+  Dashboard : "/dashboard",
+  TradingDashboard : '/trading-dashboard',
+  AssetTrading : "/asset-trading",
+  UserDashboard : "/user-dashboard",
+  TradingHistory : "/trading-history",
+  FullBalancePage : "/full-balance",
   NonAuthPageNotFound : '*' 
 };
 

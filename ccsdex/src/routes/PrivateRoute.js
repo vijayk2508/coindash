@@ -1,18 +1,14 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { cookies } from "../services/auth";
-
-import routeLink from "../constants/routeLinkConstant";
-//import Layout from "../layout";
+import { TokenID } from "../constants";
 
 function PrivateRoute({ render: Component, ...rest }) {
   function renderComponent(props) {
-    return cookies.get('ccsdexid') ? (
-      // <Layout>
-        <Component {...props} {...rest} />
-      // </Layout>
+    return cookies.get(TokenID) ? (
+      <Component {...props} {...rest} />
     ) : (
-      <Redirect to={{ pathname: routeLink.Login, state: { from: props.location } }} />
+      <Redirect to={{ pathname: "/", state: { from: props.location } }} />
     );
   }
   return <Route {...rest} render={renderComponent} />;

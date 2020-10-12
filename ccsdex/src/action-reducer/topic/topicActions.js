@@ -9,15 +9,17 @@ export function GetAllTopicBySubjectId(subjectId) {
       method: "get",
     });
     if (response.status === "success") {
+      console.log("res", response);
       dispatch({
         type: topicConstants.GETALLTOPICBYSUBJECTID,
         data: response.data.result,
       });
+    } else {
     }
   };
 }
 
-export function GetAllTopic() {
+export function GetAllTopic(subjectId) {
   return async function (dispatch) {
     const response = await sendApiRequest({
       url: `${apiEndpoints.GETALLTOPICS}`,
@@ -29,6 +31,7 @@ export function GetAllTopic() {
         type: topicConstants.GETALLTOPICS,
         data: response.data.result,
       });
+    } else {
     }
   };
 }

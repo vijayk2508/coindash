@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable strict */
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-expressions */
 
 (function (global, factory) {

@@ -1,7 +1,6 @@
 const subjectConstants = {
   GETALL: "GETALL",
-  CREATE : "CREATE",
-  GETDETAILLBYSUBJECTID  : "GETDETAILLBYSUBJECTID"
+  //LOGOUT_SUCCESSFUL: "LOGOUT_SUCCESSFUL"
 };
 
 export default subjectConstants;

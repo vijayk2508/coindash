@@ -5,16 +5,12 @@ const apiEndpoints = {
   LOGIN: "/user/login",
 
   //Subject
-  GETALLSUBJECT: "/subject/getall",
-  CREATESUBJECT : "/subject/create",
-  UPDATESUBJECT : "/subject/update",
-  DELETESUBJECT : "/subject/delete",
-  GETDETAILBYSUBJECTID : "/subject/getDetailBySubjectId/",
+  GETALLSUBJECT: "/public/subject/getall",
 
   //Topic
-  GETALLTOPICBYSUBJECTID: "/topic/getalltopicsubjectid?subjectId=",
-  GETTOPICBYTOPICID: "/topic/getalltopicbytopicid?topicId=",
-  GETALLTOPICS: "/topic/getalltopic",
+  GETALLTOPICBYSUBJECTID: "/public/topic/getalltopicsubjectid?subjectId=",
+  GETTOPICBYTOPICID: "/public/topic/getalltopicbytopicid?topicId=",
+  GETALLTOPICS: "/public/topic/getalltopic",
 };
 
 export default apiEndpoints;

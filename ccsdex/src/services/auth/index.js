@@ -13,21 +13,20 @@ import { Cookies } from "react-cookie";
 import axios from "axios";
 import { struct } from "superstruct";
 import { FLASK_PORT } from "../../constants/portConstants";
-import { resStatus } from "../../constants";
+import { TokenID } from "../../constants";
 
 export const cookies = new Cookies();
 
 axios.defaults.baseURL = FLASK_PORT;
-axios.defaults.headers.common.Authorization = cookies.get("ccsdexid");
-axios.defaults.headers.post["Content-Type"] =
-  "application/x-www-form-urlencoded";
+axios.defaults.headers.common.Authorization = cookies.get(TokenID);
+axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 
 // export const Axios = axios;
 
 // Use this config as the config param of the axios request for any general Network request
 export const config = {
   headers: {
-    Authorization: cookies.get("ccsdexid"),
+    Authorization: cookies.get(TokenID),
     "Content-Type": "application/json",
   },
 };
@@ -35,7 +34,7 @@ export const config = {
 // Use this config as the config param of the axios request for any file-related Network request
 export const fileConfig = {
   headers: {
-    Authorization: cookies.get("ccsdexid"),
+    Authorization: cookies.get(TokenID),
     "Content-Type": "multipart/form-data",
   },
 };
@@ -84,17 +83,20 @@ if (process.env.NODE_ENV !== "production") {
   });
 }
 
+
 export default async function sendApiRequest(apiParams) {
   if (process.env.NODE_ENV !== "production") {
     apiParamsSchema(apiParams); // throws error if anything is not valid
   }
   try {
     const response = await axios(apiParams);
+
     if (response.data.status === 200) {
-      return { status: resStatus.SUCCESS, data: response.data };
-    } else {
+      return { status: "success", data: response.data };
+    } 
+    else {
       const errorObject = {
-        status: resStatus.ERROR,
+        status: "error",
         message: generateAPIErrorMessage(response),
         exceptionObject: response,
       };
@@ -102,7 +104,7 @@ export default async function sendApiRequest(apiParams) {
     }
   } catch (exception) {
     const errorObject = {
-      status: resStatus.ERROR,
+      status: "error",
       message: generateAPIErrorMessage(exception),
       exceptionObject: exception,
     };

@@ -1,7 +1,6 @@
 import sendApiRequest, { cookies } from "../../services/auth";
 import apiEndpoints from "../../apiEndpoints";
 import loginConstants from "./loginConstants";
-import { TokenID } from "../../constants";
 
 /*
  Axios - onLogin
@@ -21,11 +20,14 @@ export function onSingIn(data, onSuccess = () => {}, onFailure = () => {}) {
     const response = await sendApiRequest({
       url: apiEndpoints.LOGIN,
       method: "post",
-      data: data,
+      data: {
+        userEmail: data.email,
+        userPassword: data.password,
+      },
     });
     if (response.status === "success") {
       // logged in successfully
-      cookies.set(TokenID, response.data.token, { path: "/" });
+      cookies.set("elearning_app", response.data.token, { path: "/" });
       onSuccess(response.data);
       dispatch(onLoginSuccess);
     } else {
@@ -41,13 +43,11 @@ export function onLogin({ email, password }, onSuccess, onFailure) {
       url: apiEndpoints.LOGIN,
       method: "post",
       data: {
-        userEmail: email,
-        userPassword: password,
+        login: { email, password },
       },
     });
     if (response.status === "success") {
       // logged in successfully
-      cookies.set("admin_elearning_app", response.data.token, { path: "/" });
       onSuccess();
       dispatch(onLoginSuccess);
     } else {

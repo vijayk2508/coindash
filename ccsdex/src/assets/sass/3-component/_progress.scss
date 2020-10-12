@@ -77,7 +77,7 @@
       color: $black;
       &:before {
         content: "";
-        background: url(../../img/inprogress.png) no-repeat center center $white;
+        background: url(./assets/img/inprogress.png) no-repeat center center $white;
         border: 2px solid $default;
         font-size: $font-xs;
         color: $default;
@@ -92,7 +92,7 @@
         color: $black;
         &:before {
             content: "";
-            background: url(../../img/error.png) no-repeat center center $white;
+            background: url(./assets/img/error.png) no-repeat center center $white;
             border: 2px solid $danger;
             font-size: $font-xs;
             color: $danger;
@@ -109,7 +109,7 @@
       // Step's circle in complete state
       &:before {
         content: "";
-        background: $white url(../../img/check.png) no-repeat center center;
+        background: $white url(./assets/img/check.png) no-repeat center center;
         border-color: $green;
       }
       
