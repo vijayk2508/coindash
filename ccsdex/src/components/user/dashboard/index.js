@@ -1,7 +1,70 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { useEffect, useLayoutEffect } from "react";
+import { getAssetImage } from "../../../helper/getServerImage";
+import { loadScript } from "../../../helper/scriptLoader";
+
+import "../../../assets/css/lib/amchart/export.css";
+import "../../../assets/css/lib/owl.carousel.min.css";
+import "../../../assets/css/lib/owl.theme.default.min.css";
+// import '../../../assets/css/style.css'
+
+/*
+    <script src="js/lib/jquery/jquery.min.js"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="js/lib/bootstrap/js/popper.min.js"></script>
+    <script src="js/lib/bootstrap/js/bootstrap.min.js"></script>
+    <!-- slimscrollbar scrollbar JavaScript -->
+    <script src="js/jquery.slimscroll.js"></script>
+    <!--Menu sidebar -->
+    <script src="js/sidebarmenu.js"></script>
+    <!--stickey kit -->
+    <script src="js/lib/sticky-kit-master/dist/sticky-kit.min.js"></script>
+	
+  <!-- Amchart -->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="js/lib/chart-amchart/serial.js"></script>
+    <script src="js/lib/chart-amchart/export.min.js"></script>
+    <script src="js/lib/chart-amchart/light.js"></script>
+    <script src="js/lib/chart-amchart/ammap.js"></script>
+    <script src="js/lib/chart-amchart/worldLow.js"></script>
+    <script src="js/lib/chart-amchart/pie.js"></script>
+    <script src="js/lib/chart-amchart/amstock.js"></script>
+    <script src="js/lib/chart-amchart/amchart-init.js"></script>
+
+
+    <script src="js/lib/weather/jquery.simpleWeather.min.js"></script>
+    <script src="js/lib/weather/weather-init.js"></script>
+    <script src="js/lib/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/lib/owl-carousel/owl.carousel-init.js"></script>
+    <script src="js/scripts.js"></script>
+    <!--Custom JavaScript -->
+    <script src="js/custom.min.js"></script>
+*/
+
+var scriptLink = [
+  "https://www.amcharts.com/lib/3/amcharts.js",
+  "js/lib/chart-amchart/serial.js",
+  "js/lib/chart-amchart/export.min.js",
+  "js/lib/chart-amchart/light.js",
+  "js/lib/chart-amchart/ammap.js",
+  "js/lib/chart-amchart/worldLow.js",
+  "js/lib/chart-amchart/pie.js",
+  "js/lib/chart-amchart/amstock.js",
+  "js/lib/chart-amchart/amchart-init.js",
+  "js/lib/weather/jquery.simpleWeather.min.js",
+  "js/lib/weather/weather-init.js",
+  "js/lib/owl-carousel/owl.carousel.min.js",
+  "js/lib/owl-carousel/owl.carousel-init.js",
+];
 
 function UserDashboard() {
+  useLayoutEffect(() => {
+    scriptLink.map((item) => {
+      loadScript(item.includes("https") ? item : `assets/${item}`);
+    });
+  }, []);
   return (
     <div>
       {/* Start Page Content */}
@@ -93,7 +156,7 @@ function UserDashboard() {
         <div className="col-md-4">
           <div className="card text-center bg-primary">
             <div className="m-t-10">
-              <p className="color-white">Monrhly Sales</p>
+              <p className="color-white">Monthly Sales</p>
               <h2 className="color-white">385749</h2>
             </div>
             <ul className="widget-line-list m-b-15">
@@ -175,7 +238,7 @@ function UserDashboard() {
                             <input type="checkbox" />
                             <i className="bg-primary" />
                             <span>Post three to six times on Twitter.</span>
-                            <a href="#" className="ti-close" />
+                            <a href="#" className="ti-close"></a>
                           </label>
                         </li>
                         <li className="color-success">
@@ -183,7 +246,7 @@ function UserDashboard() {
                             <input type="checkbox" defaultChecked />
                             <i className="bg-success" />
                             <span>Post one to two times on Facebook.</span>
-                            <a href="#" className="ti-close" />
+                            <a href="#" className="ti-close"></a>
                           </label>
                         </li>
                         <li className="color-warning">
@@ -191,7 +254,7 @@ function UserDashboard() {
                             <input type="checkbox" defaultChecked />
                             <i className="bg-warning" />
                             <span>Follow back those who follow you</span>
-                            <a href="#" className="ti-close" />
+                            <a href="#" className="ti-close"></a>
                           </label>
                         </li>
                         <li className="color-danger">
@@ -199,7 +262,7 @@ function UserDashboard() {
                             <input type="checkbox" defaultChecked />
                             <i className="bg-danger" />
                             <span>Connect with one new person</span>
-                            <a href="#" className="ti-close" />
+                            <a href="#" className="ti-close"></a>
                           </label>
                         </li>
                       </ul>
@@ -237,7 +300,10 @@ function UserDashboard() {
                       <td>
                         <div className="round-img">
                           <a>
-                            <img className="w-35" src="images/avatar/1.jpg" />
+                            <img
+                              className="w-35"
+                              src={getAssetImage("avatar/1.jpg")}
+                            />
                           </a>
                         </div>
                       </td>
@@ -256,7 +322,10 @@ function UserDashboard() {
                       <td>
                         <div className="round-img">
                           <a>
-                            <img className="w-35" src="images/avatar/1.jpg" />
+                            <img
+                              className="w-35"
+                              src={getAssetImage("avatar/1.jpg")}
+                            />
                           </a>
                         </div>
                       </td>
@@ -275,7 +344,10 @@ function UserDashboard() {
                       <td>
                         <div className="round-img">
                           <a>
-                            <img className="w-35" src="images/avatar/1.jpg" />
+                            <img
+                              className="w-35"
+                              src={getAssetImage("avatar/1.jpg")}
+                            />
                           </a>
                         </div>
                       </td>
@@ -294,7 +366,10 @@ function UserDashboard() {
                       <td>
                         <div className="round-img">
                           <a>
-                            <img className="w-35" src="images/avatar/1.jpg" />
+                            <img
+                              className="w-35"
+                              src={getAssetImage("avatar/1.jpg")}
+                            />
                           </a>
                         </div>
                       </td>
@@ -332,8 +407,7 @@ function UserDashboard() {
                   style={{ width: "85%", height: 8 }}
                   className="progress-bar bg-danger wow animated progress-animated"
                 >
-                  {" "}
-                  <span className="sr-only">60% Complete</span>{" "}
+                  <span className="sr-only">60% Complete</span>
                 </div>
               </div>
               <p className="m-t-10">
@@ -345,8 +419,7 @@ function UserDashboard() {
                   style={{ width: "90%", height: 8 }}
                   className="progress-bar bg-info wow animated progress-animated"
                 >
-                  {" "}
-                  <span className="sr-only">60% Complete</span>{" "}
+                  <span className="sr-only">60% Complete</span>
                 </div>
               </div>
               <p className="m-t-10">
@@ -358,8 +431,7 @@ function UserDashboard() {
                   style={{ width: "65%", height: 8 }}
                   className="progress-bar bg-success wow animated progress-animated"
                 >
-                  {" "}
-                  <span className="sr-only">60% Complete</span>{" "}
+                  <span className="sr-only">60% Complete</span>
                 </div>
               </div>
             </div>
@@ -381,7 +453,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">
@@ -400,7 +472,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">
@@ -419,7 +491,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">
@@ -438,7 +510,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">
@@ -457,7 +529,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">
@@ -476,7 +548,7 @@ function UserDashboard() {
                   <div className="testimonial-content">
                     <img
                       className="testimonial-author-img"
-                      src="images/avatar/1.jpg"
+                      src={getAssetImage("avatar/1.jpg")}
                     />
                     <div className="testimonial-author">TYRION LANNISTER</div>
                     <div className="testimonial-author-position">

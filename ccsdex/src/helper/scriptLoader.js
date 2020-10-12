@@ -35,6 +35,7 @@ export function removeTagDynamically(id) {
 export function loadScript(src) {
   const script = document.createElement('script');
   script.src = src;
+  script.type="text/javascript"
   // script.async = true;
   // document.body.appendChild(script);
   document.getElementsByTagName("body")[0].appendChild(script);
